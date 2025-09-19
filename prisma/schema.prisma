@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
 }
 
 datasource db {
@@ -17,11 +16,12 @@ datasource db {
 model User {
   id          String      @id   @default(uuid())
   username    String
-  password    String
+  password    String?
   solWalletId String?
   solWallet   SolWallet?
   bdtWalletId String?
   bdtWallet   BdtWallet?
+  provider    Provider
 }
 
 model BdtWallet {
@@ -37,4 +37,8 @@ model SolWallet {
   privateKey  String
   userId      String      @unique
   user        User        @relation(fields: [userId], references: [id])
+}
+
+enum Provider {
+  Google
 }

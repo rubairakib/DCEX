@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@solana/web3.js": "^1.98.4",
     "next": "15.5.3",
     "prisma": "^6.16.2",
     "react": "19.1.0",
